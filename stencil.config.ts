@@ -15,7 +15,7 @@ export const config: Config = {
       dir: 'docs',
       type: 'www',
       // comment the following line to disable service workers in production
-      // serviceWorker: null,
+      serviceWorker: null,
       baseUrl: 'https://myapp.local/',
     },
   ],
