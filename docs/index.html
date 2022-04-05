@@ -16,20 +16,4 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=331545326882067";
       fjs.parentNode.insertBefore(js, fjs)
     }(document, 'script', 'facebook-jssdk'))
-  </script> <script data-build="2022-04-05T21:22:12">
-if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  window.addEventListener('load', function() {
-  navigator.serviceWorker.register('/sw.js')
-    .then(function(reg) {
-    reg.onupdatefound = function() {
-      var installingWorker = reg.installing;
-      installingWorker.onstatechange = function() {
-      if (installingWorker.state === 'installed') {
-        window.dispatchEvent(new Event('swUpdate'))
-      }
-      }
-    }
-    })
-    .catch(function(err) { console.error('service worker error', err) });
-  });
-}</script></body></html>
+  </script> </body></html>
