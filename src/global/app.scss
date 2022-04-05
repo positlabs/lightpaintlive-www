@@ -1,0 +1,231 @@
+/*
+  Global App CSS
+  ----------------------
+  Use this file for styles that should be applied to all components.
+  For example, "font-family" within the "body" selector is a CSS property
+  most apps will want applied to all components.
+
+  Any global CSS variables should also be applied here.
+*/
+
+@import './normalize.scss';
+@import './mixins.scss';
+@import './vars.scss';
+
+html, body {
+	background-color: #151515;
+	color: white;
+}
+
+p, span, ul, a {
+	letter-spacing: 1px;
+	line-height: 1.5;
+	@include font-ubuntu(16px, 300);
+	color: #ddd;
+}
+
+ul, li {
+	list-style: none;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a.shiny {
+	text-decoration: none;
+	color: $primary;
+	position: relative;
+	transition: all .2s $ease-out-cubic;
+
+	&:after {
+		content:'';
+		position: absolute;
+		top: 2px; left: 0;
+		width: 100%; height: 100%;
+		border-bottom: 0px solid $primary;
+		transition: all .2s $ease-out-cubic;
+		z-index: -1;
+	}
+
+	&:hover {
+		color: white;
+		&:after {
+			border-bottom: 3px solid $primary;
+		}
+	}
+	
+}
+
+// for centering, sizing content
+.wrapper {
+	width: 90%;
+	max-width: 720px;
+	margin: 0 auto;
+}
+
+footer, header {
+	width: 100%;
+	background: black;
+	z-index: 1;
+	box-shadow: 0px 0px 6px black;
+}
+
+header {
+	height: 100px;
+	line-height: 100px;
+
+	#lpl-logo {
+		float: left;
+		margin-left: -22px;
+		background-image: url(../assets/images/logo-green.jpg);
+		width: 100px; height: 100px;
+		background-size: 80%;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.logo-type {
+		display: block;
+		float: left;
+		user-select: none;
+		span {
+			@include font-oswald(22px, 300);
+			line-height: 100px;
+			color: white;
+		}
+		span:first-child {
+			font-weight: 400;
+		}
+	}
+
+	nav {
+		float: right;
+		a {
+			transition: .2s all;
+			display: block;
+			float: left;
+			color: white;
+			text-transform: uppercase;
+			cursor: pointer;
+			margin-left: 20px;
+			@include font-oswald(14px, 300);
+			line-height: 100px;
+			border-bottom: 0px solid $primary;
+			&:hover {
+				border-bottom: 3px solid $primary;
+				color: $primary;
+			}
+		}
+	}
+
+	@media (max-width: 720px){
+		
+		$height: 60px;
+		height: $height;
+		line-height: $height;
+
+		.logo-type span {
+			font-size: 20px;
+			line-height: $height;
+		}
+
+		#lpl-logo {
+			width: $height; height: $height;
+		}
+
+		nav {
+			display: none;
+		}
+	}
+
+	@media (max-height: 480px){
+		$height: 60px;
+		height: $height;
+		line-height: $height;
+		.logo-type span {
+			font-size: 16px;
+			line-height: $height;
+		}
+		#lpl-logo {
+			width: $height; height: $height;
+			margin-left: -12px;
+		}
+		nav a {
+			line-height: 60px;
+		}
+	}
+
+}
+
+h1, h2, h3 {
+	text-transform: uppercase;
+}
+h1 {
+	@include font-oswald(32px, 400);
+}
+h2 {
+	@include font-oswald(22px, 400);
+}
+h3 {
+	@include font-ubuntu(16px, 700);
+	text-transform: none;
+}
+
+footer {
+	overflow: hidden;
+	height: 45px;
+	.fb-holder {
+		display: inline-block;
+		margin-top: 12px;
+	}
+	a {
+		float: right;
+		line-height: 45px;
+	}
+}
+
+section {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	&:first-of-type {
+		margin-top: 30px;
+	}
+	&:last-of-type {
+		margin-bottom: 130px;
+	}
+}
+
+.btn {
+	display: block;
+	background-color: white;
+	position: relative;
+	color: #333;
+	float: left;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 0px 10px 0px 50px;
+	border-left: 2px solid $primary;
+	border-bottom: 2px solid $primary;
+	border-radius: 3px;
+
+	margin-right: 20px;
+	margin-bottom: 20px;
+	
+	.icon {
+		position: absolute;
+		left: 0; top: 0;
+		width: 50px; height: 50px;
+		z-index: 1;
+		background-size: 35px;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+
+	a {
+		line-height: 50px;
+		@include font-oswald(18px);
+		&:visited, &:link {color: #333;}
+	}
+}
