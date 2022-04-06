@@ -10,6 +10,8 @@ export namespace Components {
     }
     interface LplLanding {
     }
+    interface LplPrivacy {
+    }
 }
 declare global {
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
@@ -24,9 +26,16 @@ declare global {
         prototype: HTMLLplLandingElement;
         new (): HTMLLplLandingElement;
     };
+    interface HTMLLplPrivacyElement extends Components.LplPrivacy, HTMLStencilElement {
+    }
+    var HTMLLplPrivacyElement: {
+        prototype: HTMLLplPrivacyElement;
+        new (): HTMLLplPrivacyElement;
+    };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "lpl-landing": HTMLLplLandingElement;
+        "lpl-privacy": HTMLLplPrivacyElement;
     }
 }
 declare namespace LocalJSX {
@@ -34,9 +43,12 @@ declare namespace LocalJSX {
     }
     interface LplLanding {
     }
+    interface LplPrivacy {
+    }
     interface IntrinsicElements {
         "app-root": AppRoot;
         "lpl-landing": LplLanding;
+        "lpl-privacy": LplPrivacy;
     }
 }
 export { LocalJSX as JSX };
@@ -45,6 +57,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "lpl-landing": LocalJSX.LplLanding & JSXBase.HTMLAttributes<HTMLLplLandingElement>;
+            "lpl-privacy": LocalJSX.LplPrivacy & JSXBase.HTMLAttributes<HTMLLplPrivacyElement>;
         }
     }
 }
