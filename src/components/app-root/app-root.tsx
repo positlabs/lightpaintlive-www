@@ -8,7 +8,7 @@ import { Host, Component, h, State } from '@stencil/core';
 export class AppRoot {
   @State() base: string
   componentWillLoad(){
-    this.base = document.querySelector('base').getAttribute('href')
+    this.base = location.pathname
     console.log('router root', this.base)
   }
   render() {
