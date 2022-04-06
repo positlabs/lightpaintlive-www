@@ -11,6 +11,7 @@ export default async () => {
   }
   const base = document.createElement('base')
   document.body.appendChild(base)
-  base.href = baseURL 
+  base.href = baseURL
+  console.log('document root', baseURL)
 
 };

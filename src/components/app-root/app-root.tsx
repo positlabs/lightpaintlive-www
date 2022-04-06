@@ -1,4 +1,4 @@
-import { Host, Component, h } from '@stencil/core';
+import { Host, Component, h, State } from '@stencil/core';
 
 @Component({
   tag: 'app-root',
@@ -6,10 +6,15 @@ import { Host, Component, h } from '@stencil/core';
   shadow: false,
 })
 export class AppRoot {
+  @State() base: string
+  componentWillLoad(){
+    this.base = document.querySelector('base').getAttribute('href')
+    console.log('router root', this.base)
+  }
   render() {
     return (
       <Host>
-        <stencil-router>
+        <stencil-router root={this.base}>
           <stencil-route-switch scrollTopOffset={0}>
             <stencil-route url="/" component="lpl-landing" exact={true} />
             <stencil-route url="/privacy" component="lpl-privacy" />

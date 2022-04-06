@@ -1,0 +1,1 @@
+const t=async()=>{let t="/";null!==location.href.match("github")&&(t="https://positlabs.github.io/lightpaintlive-www/");const o=document.createElement("base");document.body.appendChild(o),o.href=t,console.log("document root",t)};export{t as g}
